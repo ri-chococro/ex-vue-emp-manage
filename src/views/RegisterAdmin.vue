@@ -1,0 +1,12 @@
+<template>
+  <div class="registerAdmin"></div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component
+export default class RegisterAdmin extends Vue {}
+</script>
+
+<style></style>
