@@ -31,7 +31,7 @@ export default new Vuex.Store({
   }, // end actions
   mutations: {
     /**
-     * 従業員⼀覧情報をWebAPIから取得してmutationを呼び出す.
+     * 従業員⼀覧情報を作成してstateに格納する.
      *
      * @param state - stateを利用するための引数
      * @param payload - getEmployeeListメソッドで外部APIより受け取ったデータを渡される引数(Json形式の従業員数と従業員一覧)
