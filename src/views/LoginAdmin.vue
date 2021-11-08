@@ -2,7 +2,7 @@
   <div class="loginAdmin">
     <div class="row login-page">
       <div class="col s12 z-depth-6 card-panel">
-        <div class="error">{{ this.errorMessage }}}</div>
+        <div class="error">{{ this.errorMessage }}</div>
         <form class="login-form">
           <div class="row"></div>
           <div class="row">
