@@ -1,4 +1,4 @@
-export class Employees {
+export class Employee {
   /**
    * 従業員を表すクラス.
    *
