@@ -1,6 +1,6 @@
 export class Administrator {
   /**
-   * 従業員を表すクラス
+   * 管理者情報を表すクラス.
    *
    * @param _id - ID
    * @param _name - 名前
