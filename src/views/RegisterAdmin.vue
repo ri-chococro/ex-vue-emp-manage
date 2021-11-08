@@ -1,19 +1,6 @@
 <template>
   <div class="registerAdmin">
     <div class="container">
-      <div class="header">
-        <div class="header-left">
-          <a href="login.html">
-            <img class="logo" src="img/header_logo.png" />
-          </a>
-        </div>
-
-        <div class="header-right">
-          <a href="registerAdmin.html">管理者登録</a>
-        </div>
-      </div>
-    </div>
-    <div class="container">
       <div class="row register-page">
         <div class="error">{{ this.errorMessage }}</div>
         <form class="col s12" id="reg-form">
@@ -77,11 +64,6 @@
             </div>
           </div>
         </form>
-      </div>
-    </div>
-    <div class="container">
-      <div class="footer">
-        <div class="footer-center">©️ xxx Inc.</div>
       </div>
     </div>
   </div>

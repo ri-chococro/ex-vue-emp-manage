@@ -64,7 +64,10 @@ export default class LoginAdmin extends Vue {
   private mailAddress = "";
   //パスワード
   private password = "";
-
+  /**
+   * ログインをする.
+   *
+   */
   async loginAdmin(): Promise<void> {
     const response = await axios.post(
       "http://54.202.162.233:8080/ex-emp-api/login",
