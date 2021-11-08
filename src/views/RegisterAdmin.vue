@@ -15,7 +15,7 @@
     </div>
     <div class="container">
       <div class="row register-page">
-        <div class="error">{{ errorMessage }}</div>
+        <div class="error">{{ this.errorMessage }}</div>
         <form class="col s12" id="reg-form">
           <div class="row">
             <div class="input-field col s6">
@@ -94,15 +94,15 @@ import axios from "axios";
 @Component
 export default class RegisterAdmin extends Vue {
   //エラーメッセージ
-  private errorMessage: string;
+  private errorMessage = "";
   //姓
-  private lastName: string;
+  private lastName = "";
   //名
-  private firstName: string;
+  private firstName = "";
   //メールアドレス
-  private mailAddress: string;
+  private mailAddress = "";
   //パスワード
-  private password: string;
+  private password = "";
 
   /**
    * 管理者情報を登録する.
@@ -120,8 +120,9 @@ export default class RegisterAdmin extends Vue {
     console.log("response:" + JSON.stringify(response));
     if (response.data.status === "success") {
       this["$router"].push("/loginAdmin");
-    } else if (response.data.status === "error")
-      this.errorMessage = response.data.message;
+    } else if (response.data.status === "error") {
+      this.errorMessage = "登録できませんでした(" + response.data.message + ")";
+    }
   }
 }
 </script>
