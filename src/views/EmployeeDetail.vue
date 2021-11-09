@@ -1,7 +1,7 @@
 <template>
   <div class="employeeDetail">
     <div class="row">
-      <form action="employeeList.html">
+      <form>
         <fieldset>
           <legend>従業員情報</legend>
           <table>
@@ -75,6 +75,7 @@
                     type="text"
                     class="validate"
                     value="3"
+                    v-model="currentDependentsCount"
                     required
                   />
                   <label for="dependentsCount2">扶養人数</label>
@@ -83,7 +84,11 @@
             </tr>
           </table>
 
-          <button class="btn btn-register waves-effect waves-light">
+          <button
+            class="btn btn-register waves-effect waves-light"
+            type="button"
+            v-on:click="update"
+          >
             更新
           </button>
         </fieldset>
@@ -121,6 +126,22 @@ export default class EmployeeDetail extends Vue {
     );
 
     this.currentDependentsCount = this.currentEmployee.dependentsCount;
+  }
+
+  /**
+   * 扶養⼈数を更新する.
+   *
+   */
+  async update(): Promise<void> {
+    const response = await axios.post(
+      "http://34.214.207.222:8080/ex-emp-api/update"
+    );
+    console.log("response:" + JSON.stringify(response));
+    if (response.data.status === "success") {
+      this["$router"].push("/employeeList");
+    } else if (response.data.status === "error") {
+      this.errorMessage = response.data.message;
+    }
   }
 }
 </script>
