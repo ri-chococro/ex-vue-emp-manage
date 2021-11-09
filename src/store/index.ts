@@ -39,24 +39,28 @@ export default new Vuex.Store({
     showEmployeeList(state, payload) {
       console.log("totalEmployeeCount:" + payload.totalEmployeeCount);
       state.totalEmployeeCount = payload.totalEmployeeCount;
-      for (const employee of payload.employees) {
-        state.employees.push(
-          new Employee(
-            employee.id,
-            employee.name,
-            employee.image,
-            employee.gender,
-            employee.hireDate,
-            employee.mailAddress,
-            employee.zipCode,
-            employee.address,
-            employee.telephone,
-            employee.salary,
-            employee.characteristics,
-            employee.dependentsCount
-          )
-        );
-      }
+      state.employees = payload.employees;
+
+      // 上記の1行は以下とほぼ同じことをやっている
+      // 戻るボタンを押した時に配列が増えてしまうので、上記の1行の方が好ましい
+      // for (const employee of payload.employees) {
+      //   state.employees.push(
+      //     new Employee(
+      //       employee.id,
+      //       employee.name,
+      //       employee.image,
+      //       employee.gender,
+      //       employee.hireDate,
+      //       employee.mailAddress,
+      //       employee.zipCode,
+      //       employee.address,
+      //       employee.telephone,
+      //       employee.salary,
+      //       employee.characteristics,
+      //       employee.dependentsCount
+      //     )
+      //   );
+      // }
       console.log("employees:" + state.employees);
     },
   }, // end mutations

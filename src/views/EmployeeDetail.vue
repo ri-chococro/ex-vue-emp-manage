@@ -69,7 +69,7 @@
               <th nowrap>扶養人数</th>
               <td>
                 <div class="input-field col s12">
-                  <div class="error">{{ errorMessage }}</div>
+                  <div class="error">{{ this.errorMessage }}</div>
                   <input
                     id="dependentsCount"
                     type="text"
@@ -78,7 +78,6 @@
                     v-model="currentDependentsCount"
                     required
                   />
-                  <label for="dependentsCount2">扶養人数</label>
                 </div>
               </td>
             </tr>
@@ -104,10 +103,10 @@ import axios from "axios";
 
 @Component
 export default class EmployeeDetail extends Vue {
-  //大正の従業員オブジェクト
+  //対象の従業員オブジェクト
   private currentEmployee!: Employee;
   //エラーメッセージ
-  private errorMessage!: string;
+  private errorMessage = "";
   //対象の従業員のimageパス
   private currentEmployeeImage!: string;
   //対象の従業員の扶養⼈数
@@ -134,13 +133,17 @@ export default class EmployeeDetail extends Vue {
    */
   async update(): Promise<void> {
     const response = await axios.post(
-      "http://34.214.207.222:8080/ex-emp-api/update"
+      "http://34.214.207.222:8080/ex-emp-api/employee/update",
+      {
+        id: this.currentEmployee.id,
+        dependentsCount: this.currentDependentsCount,
+      }
     );
-    console.log("response:" + JSON.stringify(response));
+    console.dir("response:" + JSON.stringify(response));
     if (response.data.status === "success") {
       this["$router"].push("/employeeList");
     } else if (response.data.status === "error") {
-      this.errorMessage = response.data.message;
+      this.errorMessage = "更新できませんでした(" + response.data.message + ")";
     }
   }
 }
