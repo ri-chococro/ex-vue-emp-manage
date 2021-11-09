@@ -7,6 +7,7 @@ module.exports = {
     "plugin:vue/essential",
     "eslint:recommended",
     "@vue/typescript/recommended",
+    // "@typescript-eslint/no-inferrable-types",
   ],
   parserOptions: {
     ecmaVersion: 2020,

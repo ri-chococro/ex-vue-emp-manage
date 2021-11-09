@@ -2,7 +2,7 @@
   <div class="loginAdmin">
     <div class="row login-page">
       <div class="col s12 z-depth-6 card-panel">
-        <div class="error">{{ this.errorMessage }}</div>
+        <div class="error">{{ errorMessage }}</div>
         <form class="login-form">
           <div class="row"></div>
           <div class="row">
@@ -70,7 +70,7 @@ export default class LoginAdmin extends Vue {
    */
   async loginAdmin(): Promise<void> {
     const response = await axios.post(
-      "http://54.202.162.233:8080/ex-emp-api/login",
+      "http://34.214.207.222:8080/ex-emp-api/login",
       {
         mailAddress: this.mailAddress,
         password: this.password,
