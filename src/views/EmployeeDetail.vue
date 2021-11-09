@@ -111,12 +111,11 @@ export default class EmployeeDetail extends Vue {
   /**
    * VuexストアのGetter経由で受け取ったリクエストパラメータのIDから１件の従業員情報を取得する.
    */
-  async created() {
+  created() {
     const employeeId = parseInt(this["$route"].params.id);
     this.currentEmployee = this["$store"].getters.getEmployeeById(employeeId);
-    this.currentEmployeeImage = await axios.get(
-      `http://34.214.207.222:8080/ex-emp-api/img/${this.currentEmployee.image}`
-    );
+    this.currentEmployeeImage = `http://34.214.207.222:8080/ex-emp-api/img/${this.currentEmployee.image}`;
+
     console.dir(
       "curentEmployeeImage:" + JSON.stringify(this.currentEmployeeImage)
     );
